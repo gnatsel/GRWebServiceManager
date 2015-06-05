@@ -1,0 +1,12 @@
+platform :ios, '7.0'
+
+target 'SampleGRWebServiceManager' do
+	pod "AFNetworking", "~> 2.0"
+	pod 'SDWebImage', '~>3.7'
+    pod 'DateTools'
+end
+
+target 'SampleGRWebServiceManagerTests' do
+
+end
+

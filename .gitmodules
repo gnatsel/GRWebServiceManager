@@ -1,0 +1,6 @@
+[submodule "GRCoreDataUtils"]
+	path = GRCoreDataUtils
+	url = git://github.com/gnatsel/GRCoreDataUtils
+[submodule "GRPullToRefresh"]
+	path = GRPullToRefresh
+	url = git://github.com/gnatsel/GRPullToRefresh
