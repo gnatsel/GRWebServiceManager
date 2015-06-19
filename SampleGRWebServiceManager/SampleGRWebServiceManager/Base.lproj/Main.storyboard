@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lbw-y2-vtW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lbw-y2-vtW">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -17,6 +17,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="AD1-TM-ikn" kind="relationship" relationship="viewControllers" id="5TR-fM-nca"/>
+                        <segue destination="Q74-ne-fcw" kind="relationship" relationship="viewControllers" id="7YM-mb-6aS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z1G-6d-LZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -40,41 +41,40 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WZ-tO-GAY" customClass="FeedItemPresenter">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="119"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="raU-r2-LiX" userLabel="Media Image View">
-                                                    <rect key="frame" x="0.0" y="8" width="600" height="50"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LPc-Vm-Qqv" userLabel="Media Image View">
+                                                    <rect key="frame" x="11" y="8" width="100" height="100"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgV-2L-Rcf" userLabel="Feed Title Label">
-                                                    <rect key="frame" x="0.0" y="66" width="600" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tby-KO-Dyf" userLabel="Feed Description Label">
+                                                    <rect key="frame" x="119" y="58" width="481" height="53"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tby-KO-Dyf" userLabel="Feed Description Label">
-                                                    <rect key="frame" x="0.0" y="90" width="600" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IcS-Jy-Hfl" userLabel="Feed Title Label">
+                                                    <rect key="frame" x="119" y="8" width="481" height="53"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="bgV-2L-Rcf" firstAttribute="top" secondItem="1WZ-tO-GAY" secondAttribute="top" constant="66" id="4nV-UL-fek"/>
-                                                <constraint firstItem="Tby-KO-Dyf" firstAttribute="top" secondItem="1WZ-tO-GAY" secondAttribute="top" constant="90" id="MNW-bM-oXh"/>
-                                                <constraint firstAttribute="trailing" secondItem="raU-r2-LiX" secondAttribute="trailing" id="WK5-Vo-zOm"/>
-                                                <constraint firstAttribute="bottom" secondItem="bgV-2L-Rcf" secondAttribute="bottom" constant="32" id="WqC-Yd-Lf0"/>
-                                                <constraint firstAttribute="trailing" secondItem="bgV-2L-Rcf" secondAttribute="trailing" id="Wwd-cP-KnX"/>
-                                                <constraint firstItem="bgV-2L-Rcf" firstAttribute="leading" secondItem="1WZ-tO-GAY" secondAttribute="leading" id="Zz4-aY-Yup"/>
-                                                <constraint firstItem="raU-r2-LiX" firstAttribute="top" secondItem="1WZ-tO-GAY" secondAttribute="top" constant="8" id="gkg-UR-Tdp"/>
-                                                <constraint firstItem="raU-r2-LiX" firstAttribute="leading" secondItem="1WZ-tO-GAY" secondAttribute="leading" id="jnB-CE-AsU"/>
-                                                <constraint firstAttribute="bottom" secondItem="Tby-KO-Dyf" secondAttribute="bottom" constant="8" id="jvb-xF-VXi"/>
-                                                <constraint firstAttribute="trailing" secondItem="Tby-KO-Dyf" secondAttribute="trailing" id="wy7-YR-aZL"/>
-                                                <constraint firstItem="Tby-KO-Dyf" firstAttribute="leading" secondItem="1WZ-tO-GAY" secondAttribute="leading" id="y8d-jv-r7z"/>
-                                                <constraint firstAttribute="bottom" secondItem="raU-r2-LiX" secondAttribute="bottom" constant="61" id="zX5-3s-IYf"/>
+                                                <constraint firstItem="LPc-Vm-Qqv" firstAttribute="leading" secondItem="1WZ-tO-GAY" secondAttribute="leading" constant="11" id="0tw-TG-D4W"/>
+                                                <constraint firstAttribute="bottom" secondItem="LPc-Vm-Qqv" secondAttribute="bottom" constant="11" id="6OD-Hd-BuU"/>
+                                                <constraint firstItem="Tby-KO-Dyf" firstAttribute="top" secondItem="1WZ-tO-GAY" secondAttribute="top" constant="58" id="B7x-FT-Ur6"/>
+                                                <constraint firstItem="LPc-Vm-Qqv" firstAttribute="top" secondItem="1WZ-tO-GAY" secondAttribute="top" constant="8" id="HkG-8Z-aqc"/>
+                                                <constraint firstAttribute="trailing" secondItem="IcS-Jy-Hfl" secondAttribute="trailing" id="QTy-JJ-0cl"/>
+                                                <constraint firstItem="IcS-Jy-Hfl" firstAttribute="top" secondItem="1WZ-tO-GAY" secondAttribute="top" constant="8" id="RCw-V5-Oh3"/>
+                                                <constraint firstItem="IcS-Jy-Hfl" firstAttribute="leading" secondItem="LPc-Vm-Qqv" secondAttribute="trailing" constant="8" id="Sdp-B5-fI1"/>
+                                                <constraint firstItem="Tby-KO-Dyf" firstAttribute="leading" secondItem="1WZ-tO-GAY" secondAttribute="leading" constant="119" id="b5c-bV-0nT"/>
+                                                <constraint firstAttribute="trailing" secondItem="Tby-KO-Dyf" secondAttribute="trailing" id="dkd-Si-Rkb"/>
+                                                <constraint firstAttribute="bottom" secondItem="Tby-KO-Dyf" secondAttribute="bottom" constant="8" id="gOT-ce-tzU"/>
+                                                <constraint firstItem="IcS-Jy-Hfl" firstAttribute="leading" secondItem="1WZ-tO-GAY" secondAttribute="leading" constant="119" id="ht0-rl-Myr"/>
+                                                <constraint firstAttribute="bottom" secondItem="IcS-Jy-Hfl" secondAttribute="bottom" constant="58" id="lXl-dT-DGV"/>
+                                                <constraint firstItem="Tby-KO-Dyf" firstAttribute="leading" secondItem="LPc-Vm-Qqv" secondAttribute="trailing" constant="8" id="xvf-lq-RKV"/>
                                             </constraints>
                                             <connections>
-                                                <outlet property="descriptionFeedLabel" destination="Tby-KO-Dyf" id="sLn-zG-auc"/>
-                                                <outlet property="mediaImageView" destination="raU-r2-LiX" id="zc3-wp-MMC"/>
-                                                <outlet property="titleFeedLabel" destination="bgV-2L-Rcf" id="Mw6-jq-VLE"/>
+                                                <outlet property="mediaImageView" destination="LPc-Vm-Qqv" id="MWw-5r-dkM"/>
+                                                <outlet property="publicationInfoLabel" destination="Tby-KO-Dyf" id="tHK-U7-XLl"/>
+                                                <outlet property="titleFeedLabel" destination="IcS-Jy-Hfl" id="hn6-vN-agx"/>
                                             </connections>
                                         </view>
                                     </subviews>
@@ -96,6 +96,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Flickr Public Feed" id="dhW-j5-84Z"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isBookmarkController" value="NO"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="view" destination="WEW-bm-QWd" id="Ixl-SJ-JMi"/>
                         <segue destination="4Lu-Fl-JQq" kind="show" identifier="DETAIL_FEED_ITEM_SEGUE" id="Cqd-tY-Qti"/>
@@ -105,10 +108,94 @@
             </objects>
             <point key="canvasLocation" x="2574" y="850"/>
         </scene>
-        <!--View Controller-->
+        <!--Flickr bookmarked items-->
+        <scene sceneID="QJU-A7-t9V">
+            <objects>
+                <tableViewController id="XQI-ZN-lfB" customClass="FeedTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" id="1By-Ek-pKA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedItemTableViewCell" id="JlV-6w-AYB" customClass="FeedItemTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JlV-6w-AYB" id="ZjS-DI-9ho">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DsL-Nc-pz3" customClass="FeedItemPresenter">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="119"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tda-kU-zfc" userLabel="Media Image View">
+                                                    <rect key="frame" x="11" y="8" width="100" height="100"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5c-Yh-mUA" userLabel="Feed Description Label">
+                                                    <rect key="frame" x="119" y="58" width="481" height="53"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9N-ab-jQC" userLabel="Feed Title Label">
+                                                    <rect key="frame" x="119" y="8" width="481" height="53"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="O5c-Yh-mUA" firstAttribute="leading" secondItem="DsL-Nc-pz3" secondAttribute="leading" constant="119" id="29k-ii-Mv2"/>
+                                                <constraint firstAttribute="bottom" secondItem="tda-kU-zfc" secondAttribute="bottom" constant="11" id="ASs-A3-Ddd"/>
+                                                <constraint firstItem="O5c-Yh-mUA" firstAttribute="top" secondItem="DsL-Nc-pz3" secondAttribute="top" constant="58" id="CF6-De-gB2"/>
+                                                <constraint firstAttribute="bottom" secondItem="r9N-ab-jQC" secondAttribute="bottom" constant="58" id="Hjo-KU-xve"/>
+                                                <constraint firstItem="r9N-ab-jQC" firstAttribute="leading" secondItem="tda-kU-zfc" secondAttribute="trailing" constant="8" id="KQS-oJ-jdy"/>
+                                                <constraint firstAttribute="bottom" secondItem="O5c-Yh-mUA" secondAttribute="bottom" constant="8" id="Vwe-kt-5rM"/>
+                                                <constraint firstItem="tda-kU-zfc" firstAttribute="leading" secondItem="DsL-Nc-pz3" secondAttribute="leading" constant="11" id="c7d-av-I2o"/>
+                                                <constraint firstAttribute="trailing" secondItem="r9N-ab-jQC" secondAttribute="trailing" id="g6P-tT-D1X"/>
+                                                <constraint firstItem="tda-kU-zfc" firstAttribute="top" secondItem="DsL-Nc-pz3" secondAttribute="top" constant="8" id="gCi-ZS-lX9"/>
+                                                <constraint firstAttribute="trailing" secondItem="O5c-Yh-mUA" secondAttribute="trailing" id="hOk-0v-1L3"/>
+                                                <constraint firstItem="O5c-Yh-mUA" firstAttribute="leading" secondItem="tda-kU-zfc" secondAttribute="trailing" constant="8" id="lKq-i8-X8g"/>
+                                                <constraint firstItem="r9N-ab-jQC" firstAttribute="top" secondItem="DsL-Nc-pz3" secondAttribute="top" constant="8" id="rPW-6w-2cN"/>
+                                                <constraint firstItem="r9N-ab-jQC" firstAttribute="leading" secondItem="DsL-Nc-pz3" secondAttribute="leading" constant="119" id="zHW-D6-hgk"/>
+                                            </constraints>
+                                            <connections>
+                                                <outlet property="mediaImageView" destination="tda-kU-zfc" id="6Xg-Ac-e3U"/>
+                                                <outlet property="publicationInfoLabel" destination="O5c-Yh-mUA" id="slL-Pw-5g6"/>
+                                                <outlet property="titleFeedLabel" destination="r9N-ab-jQC" id="jUR-MJ-etg"/>
+                                            </connections>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="DsL-Nc-pz3" secondAttribute="trailing" constant="-8" id="WyN-92-JAt"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="DsL-Nc-pz3" secondAttribute="bottom" constant="-8" id="em9-JN-mJd"/>
+                                        <constraint firstItem="DsL-Nc-pz3" firstAttribute="top" secondItem="ZjS-DI-9ho" secondAttribute="topMargin" constant="-8" id="nXo-X5-1mw"/>
+                                        <constraint firstItem="DsL-Nc-pz3" firstAttribute="leading" secondItem="ZjS-DI-9ho" secondAttribute="leadingMargin" constant="-8" id="yLT-tj-var"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="presenter" destination="DsL-Nc-pz3" id="eRf-uP-CHo"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XQI-ZN-lfB" id="bOA-ya-3VQ"/>
+                            <outlet property="delegate" destination="XQI-ZN-lfB" id="f8m-3c-qDo"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Flickr bookmarked items" id="Sqb-Da-RpF"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isBookmarkController" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="view" destination="1By-Ek-pKA" id="I8g-Cj-ZW4"/>
+                        <segue destination="4Lu-Fl-JQq" kind="show" identifier="DETAIL_FEED_ITEM_SEGUE" id="LO2-TM-YIs"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="58B-bc-7DV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2574" y="1589"/>
+        </scene>
+        <!--Flickr Detail View-->
         <scene sceneID="X1o-LZ-24m">
             <objects>
-                <viewController id="4Lu-Fl-JQq" sceneMemberID="viewController">
+                <viewController id="4Lu-Fl-JQq" customClass="DetailFeedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Gvf-3w-JAq"/>
                         <viewControllerLayoutGuide type="bottom" id="R2o-Yb-zIo"/>
@@ -117,47 +204,101 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WGV-sP-08y" customClass="FeedItemPresenter">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WGV-sP-08y" customClass="FeedItemPresenter">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wf2-BK-VhM" userLabel="Feed Title Label">
-                                        <rect key="frame" x="0.0" y="243" width="600" height="21"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44Y-UA-Ufg" userLabel="Feed Description Label">
-                                        <rect key="frame" x="0.0" y="267" width="600" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RcP-3s-Pfn" userLabel="Media Image View">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RcP-3s-Pfn" userLabel="Media Image View">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wf2-BK-VhM" userLabel="Feed Title Label">
+                                        <rect key="frame" x="8" y="108" width="584" height="37"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44Y-UA-Ufg" userLabel="Feed Description Label">
+                                        <rect key="frame" x="8" y="153" width="584" height="53"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uCV-D1-i3P">
+                                        <rect key="frame" x="8" y="214" width="584" height="273"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </webView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0K-C9-r88" userLabel="Web Link Button">
+                                        <rect key="frame" x="8" y="8" width="44" height="44"/>
+                                        <state key="normal" image="web_link_button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="IXo-yb-n1g" kind="show" identifier="WEBVIEW_FEED_ITEM_SEGUE" id="0l0-LO-FAX"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="RcP-3s-Pfn" secondAttribute="trailing" id="2l9-3d-Zrh"/>
+                                    <constraint firstItem="Wf2-BK-VhM" firstAttribute="top" secondItem="RcP-3s-Pfn" secondAttribute="bottom" constant="8" id="8tW-EW-6Nf"/>
+                                    <constraint firstItem="RcP-3s-Pfn" firstAttribute="top" secondItem="WGV-sP-08y" secondAttribute="top" id="AEC-fT-ojn"/>
+                                    <constraint firstItem="44Y-UA-Ufg" firstAttribute="leading" secondItem="WGV-sP-08y" secondAttribute="leading" constant="8" id="CQ5-es-DWs"/>
+                                    <constraint firstItem="44Y-UA-Ufg" firstAttribute="top" secondItem="Wf2-BK-VhM" secondAttribute="bottom" constant="8" id="Dn7-e0-rqH"/>
+                                    <constraint firstAttribute="trailing" secondItem="44Y-UA-Ufg" secondAttribute="trailing" constant="8" id="Ie8-Kx-MEI"/>
+                                    <constraint firstItem="uCV-D1-i3P" firstAttribute="leading" secondItem="WGV-sP-08y" secondAttribute="leading" constant="8" id="LKo-Ks-8xR"/>
+                                    <constraint firstItem="Wf2-BK-VhM" firstAttribute="leading" secondItem="WGV-sP-08y" secondAttribute="leading" constant="8" id="M2f-Oj-582"/>
+                                    <constraint firstAttribute="trailing" secondItem="uCV-D1-i3P" secondAttribute="trailing" constant="8" id="TBl-1I-SD4"/>
+                                    <constraint firstAttribute="bottom" secondItem="uCV-D1-i3P" secondAttribute="bottom" id="XU6-5W-ZRr"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wf2-BK-VhM" secondAttribute="trailing" constant="8" id="YTX-vN-DTV"/>
+                                    <constraint firstItem="uCV-D1-i3P" firstAttribute="top" secondItem="44Y-UA-Ufg" secondAttribute="bottom" constant="8" id="aTU-AA-Ltb"/>
+                                    <constraint firstItem="RcP-3s-Pfn" firstAttribute="leading" secondItem="WGV-sP-08y" secondAttribute="leading" id="dgg-pr-q6t"/>
+                                    <constraint firstItem="Wf2-BK-VhM" firstAttribute="leading" secondItem="RcP-3s-Pfn" secondAttribute="trailing" constant="-592" id="vHS-Im-wNm"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="presenterStyle">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="descriptionFeedLabel" destination="44Y-UA-Ufg" id="bcJ-8P-rv0"/>
+                                    <outlet property="bookmarkBarButtonItem" destination="Xkm-Vh-gmR" id="lMx-Dm-MxE"/>
+                                    <outlet property="detailedDescriptionWebView" destination="uCV-D1-i3P" id="Q89-Ui-rov"/>
                                     <outlet property="mediaImageView" destination="RcP-3s-Pfn" id="u0f-ld-TB8"/>
+                                    <outlet property="publicationInfoLabel" destination="44Y-UA-Ufg" id="e0H-i0-jwr"/>
                                     <outlet property="titleFeedLabel" destination="Wf2-BK-VhM" id="hbp-zF-xSS"/>
                                 </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WGV-sP-08y" firstAttribute="top" secondItem="Gvf-3w-JAq" secondAttribute="bottom" id="2xy-jB-UqH"/>
+                            <constraint firstItem="R2o-Yb-zIo" firstAttribute="top" secondItem="WGV-sP-08y" secondAttribute="bottom" id="eNt-pb-6Kl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WGV-sP-08y" secondAttribute="trailing" constant="-16" id="o6D-mO-Hjq"/>
+                            <constraint firstItem="WGV-sP-08y" firstAttribute="leading" secondItem="FA0-ck-PyF" secondAttribute="leadingMargin" constant="-16" id="ruk-nh-264"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="presenter" destination="WGV-sP-08y" id="l4v-qb-MP4"/>
+                        </connections>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Flickr Detail View" id="vQv-XW-oHl">
+                        <barButtonItem key="rightBarButtonItem" image="bookmark_button" id="Xkm-Vh-gmR">
+                            <color key="tintColor" red="0.054901960784313725" green="0.47843137254901957" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="bookmarkAction:" destination="4Lu-Fl-JQq" id="bOO-wN-6ai"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="IXo-yb-n1g" kind="show" identifier="WEBVIEW_FEED_ITEM_SEGUE" id="NfT-7P-I2o"/>
+                        <outlet property="bookmarkBarButtonItem" destination="Xkm-Vh-gmR" id="uSw-NP-oc5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzC-e4-i6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3321" y="850"/>
         </scene>
-        <!--View Controller-->
+        <!--Flickr Web View-->
         <scene sceneID="xdg-CT-Zn0">
             <objects>
-                <viewController id="IXo-yb-n1g" sceneMemberID="viewController">
+                <viewController id="IXo-yb-n1g" customClass="FeedWebViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EuO-bX-G6y"/>
                         <viewControllerLayoutGuide type="bottom" id="ZRI-3m-FZx"/>
@@ -166,19 +307,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z3f-fD-apB">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iiu-lw-5UR" customClass="FeedItemPresenter">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z3f-fD-apB" userLabel="Link Web View">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </webView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Z3f-fD-apB" secondAttribute="trailing" id="O74-Kx-DZo"/>
+                                    <constraint firstAttribute="bottom" secondItem="Z3f-fD-apB" secondAttribute="bottom" id="Ozh-wg-imn"/>
+                                    <constraint firstItem="Z3f-fD-apB" firstAttribute="top" secondItem="Iiu-lw-5UR" secondAttribute="top" id="ehE-Q0-IpG"/>
+                                    <constraint firstItem="Z3f-fD-apB" firstAttribute="leading" secondItem="Iiu-lw-5UR" secondAttribute="leading" id="fjx-BA-egE"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="presenterStyle">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="bookmarkBarButtonItem" destination="Xkm-Vh-gmR" id="MLh-1t-rbw"/>
+                                    <outlet property="linkWebView" destination="Z3f-fD-apB" id="ZLt-ff-qkk"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Z3f-fD-apB" secondAttribute="trailing" constant="-16" id="1bz-3R-kp9"/>
-                            <constraint firstItem="Z3f-fD-apB" firstAttribute="top" secondItem="EuO-bX-G6y" secondAttribute="bottom" id="H7S-Sf-r5m"/>
-                            <constraint firstItem="ZRI-3m-FZx" firstAttribute="top" secondItem="Z3f-fD-apB" secondAttribute="bottom" id="RFN-ru-hXj"/>
-                            <constraint firstItem="Z3f-fD-apB" firstAttribute="leading" secondItem="6RD-YT-pE2" secondAttribute="leadingMargin" constant="-16" id="wA5-SL-wsh"/>
+                            <constraint firstItem="Iiu-lw-5UR" firstAttribute="top" secondItem="EuO-bX-G6y" secondAttribute="bottom" constant="-64" id="5EN-l6-C3l"/>
+                            <constraint firstItem="ZRI-3m-FZx" firstAttribute="top" secondItem="Iiu-lw-5UR" secondAttribute="bottom" constant="-44" id="83I-FU-bc3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Iiu-lw-5UR" secondAttribute="trailing" constant="-16" id="VfX-AL-Jf4"/>
+                            <constraint firstItem="Iiu-lw-5UR" firstAttribute="leading" secondItem="6RD-YT-pE2" secondAttribute="leadingMargin" constant="-16" id="p1B-ZF-mrm"/>
                         </constraints>
+                        <connections>
+                            <outlet property="presenter" destination="Iiu-lw-5UR" id="qjy-Zr-14k"/>
+                        </connections>
                     </view>
+                    <navigationItem key="navigationItem" title="Flickr Web View" id="BpM-hy-H5e"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="afx-ey-Ljp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -201,8 +367,30 @@
             </objects>
             <point key="canvasLocation" x="1767" y="850"/>
         </scene>
+        <!--Bookmarks-->
+        <scene sceneID="rfj-Rl-iBX">
+            <objects>
+                <navigationController id="Q74-ne-fcw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Bookmarks" image="bookmark_button" id="tEc-fq-xZE"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uRr-VM-HcU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="XQI-ZN-lfB" kind="relationship" relationship="rootViewController" id="TNj-7U-wDV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Td-KR-xFP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1767" y="1589"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="bookmark_button" width="25" height="25"/>
         <image name="feed_button" width="25" height="25"/>
+        <image name="web_link_button" width="44" height="44"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="LO2-TM-YIs"/>
+    </inferredMetricsTieBreakers>
 </document>

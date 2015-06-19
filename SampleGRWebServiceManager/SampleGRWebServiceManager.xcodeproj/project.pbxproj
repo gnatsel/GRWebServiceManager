@@ -294,12 +294,12 @@
 			children = (
 				3497EDBF1B1DAEB100935896 /* GRRefreshView.h */,
 				3497EDC01B1DAEB100935896 /* GRRefreshView.m */,
-				34E278BF1B1F3DAA00F3EB44 /* GRCustomRefreshView.h */,
-				34E278C01B1F3DAA00F3EB44 /* GRCustomRefreshView.m */,
 				3497EDC11B1DAEB100935896 /* UIScrollView+GRInfiniteScrolling.h */,
 				3497EDC21B1DAEB100935896 /* UIScrollView+GRInfiniteScrolling.m */,
 				3497EDC31B1DAEB100935896 /* UIScrollView+GRPullToRefresh.h */,
 				3497EDC41B1DAEB100935896 /* UIScrollView+GRPullToRefresh.m */,
+				34E278BF1B1F3DAA00F3EB44 /* GRCustomRefreshView.h */,
+				34E278C01B1F3DAA00F3EB44 /* GRCustomRefreshView.m */,
 			);
 			name = GRPullToRefresh;
 			path = ../../../GRPullToRefresh/GRPullToRefresh;

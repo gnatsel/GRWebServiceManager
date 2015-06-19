@@ -2,7 +2,7 @@
 //  FeedItemDAO.h
 //  SampleGRWebServiceManager
 //
-//  Created by Olivier Lestang [DAN-PARIS] on 04/06/2015.
+//  Created by Gnatsel Reivilo on 04/06/2015.
 //  Copyright (c) 2015 Gnatsel Reivilo. All rights reserved.
 //
 
@@ -16,8 +16,8 @@
 
 +(void)deleteFeedItemsNotInArray:(NSArray *)feedItemsArray;
 +(void)deleteFeedItemsNotInArray:(NSArray *)feedItemsArray predicateFormat:(NSString *)predicateFormat;
-/*
-+(NSFetchedResultsController *)fetchedResultsControllerForEntityClass:(Class)entityClass delegate:(id<NSFetchedResultsControllerDelegate>)delegate predicateFormat:(NSString *)predicateFormat sortDescriptors:(NSArray *)sortDescriptors{
-    
-}*/
+
++(NSFetchedResultsController *)fetchedResultsControllerWithDelegate:(id<NSFetchedResultsControllerDelegate>)delegate;
++(NSFetchedResultsController *)fetchedResultsControllerWithDelegate:(id<NSFetchedResultsControllerDelegate>)delegate isBookmarkController:(BOOL)isBookmarkController;
+
 @end

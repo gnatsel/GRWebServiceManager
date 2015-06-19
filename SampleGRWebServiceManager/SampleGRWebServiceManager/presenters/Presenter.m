@@ -2,7 +2,7 @@
 //  Presenter.m
 //  SampleGRWebServiceManager
 //
-//  Created by Olivier Lestang [DAN-PARIS] on 04/06/2015.
+//  Created by Gnatsel Reivilo on 04/06/2015.
 //  Copyright (c) 2015 Gnatsel Reivilo. All rights reserved.
 //
 
@@ -11,6 +11,10 @@
 @implementation Presenter
 -(void)configureWithObject:(id)anObject{
     
+}
+
+-(NSDictionary *)dictionaryEntity{
+    return nil;
 }
 
 @end

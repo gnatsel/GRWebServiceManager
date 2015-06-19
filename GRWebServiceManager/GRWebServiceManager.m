@@ -2,7 +2,7 @@
 //  GRWebServiceManager.m
 //  SampleGRWebServiceManager
 //
-//  Created by Olivier Lestang [DAN-PARIS] on 04/06/2015.
+//  Created by Gnatsel Reivilo on 04/06/2015.
 //  Copyright (c) 2015 Gnatsel Reivilo. All rights reserved.
 //
 
@@ -10,6 +10,21 @@
 
 @implementation GRWebServiceManager
 
+-(instancetype)init{
+    if(self = [super init]){
+        _requestOperationManager = [AFHTTPRequestOperationManager manager];
+        
+        [_requestOperationManager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+        NSMutableSet *acceptableContentTypes = [_requestOperationManager.responseSerializer.acceptableContentTypes mutableCopy];
+        [acceptableContentTypes addObject:@"application/x-javascript"];
+        [acceptableContentTypes addObject:@"application/javascript"];
+        AFJSONResponseSerializer *responseSerializer = (AFJSONResponseSerializer *)(_requestOperationManager.responseSerializer);
+        responseSerializer.acceptableContentTypes = acceptableContentTypes;
+        /*responseSerializer.readingOptions = NSJSONReadingAllowFragments;*/
+        
+    }
+    return self;
+}
 
 -(void)perform{
     _isUpdating = YES;
@@ -32,145 +47,104 @@
             break;
     }
 }
+-(void)handleHTTPResponseForOperation:(AFHTTPRequestOperation *)operation responseObject:(id)responseObject error:(NSError *)error{
+    if(_delegate && [_delegate respondsToSelector:@selector(webServiceManager:didReceiveResponseForOperation:)]){
+        [_delegate webServiceManager:self didReceiveResponseForOperation:operation];
+        _delegate = nil;
+    }
+    error? [self requestFailedWithError:error forOperation:operation] : [self requestSucceededWithObject:responseObject];
+    if(_delegate && [_delegate respondsToSelector:@selector(webServiceManager:didFinishWithSuccess:)]){
+        [_delegate webServiceManager:self didFinishWithSuccess:_success];
+        _delegate = nil;
+    }
+}
+
+
 
 -(void)performGETRequest{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-    [manager
-     GET:_urlString
-     parameters:_parameters
-     success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         [self requestSucceededWithObject:responseObject];
-         if(_delegate && [_delegate respondsToSelector:@selector(webServiceManager:didFinishWithSuccess:)]){
-             [_delegate webServiceManager:self didFinishWithSuccess:_success];
-             _delegate = nil;
-         }
-     }
-     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         [self requestFailedWithError:error forOperation:operation];
-         if(_delegate && [_delegate respondsToSelector:@selector(webServiceManager:didFinishWithSuccess:)]){
-             [_delegate webServiceManager:self didFinishWithSuccess:_success];
-             _delegate = nil;
-         }
-     }];
+    [_requestOperationManager GET:_urlString
+                       parameters:_parameters
+                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                              [self handleHTTPResponseForOperation:operation responseObject:responseObject error:nil];
+                          }
+                          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                              [self handleHTTPResponseForOperation:operation responseObject:nil error:error];
+                          }];
 }
 
 -(void)performPOSTRequest{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    if(_multipartArray){
-        
-    }
-        [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-        
-        [manager
-         POST:_urlString
-         parameters:_parameters
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             [self requestSucceededWithObject:responseObject];
-             if(_delegate){
-                 [_delegate webServiceManager:self didFinishWithSuccess:_success];
-                 _delegate = nil;
-             }
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             [self requestFailedWithError:error forOperation:operation];
-             if(_delegate){
-                 [_delegate webServiceManager:self didFinishWithSuccess:_success];
-                 _delegate = nil;
-             }
-             
-             
-             
-         }];
+    [_requestOperationManager POST:_urlString
+                        parameters:_parameters
+                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                               [self handleHTTPResponseForOperation:operation responseObject:responseObject error:nil];
+                           }
+                           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                               [self handleHTTPResponseForOperation:operation responseObject:nil error:error];
+                               
+                           }];
     
     
 }
 
 -(void)performPOSTRequestMultipart{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-    [manager POST:_urlString parameters:_parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        if(_multipartArray){
-            for(NSDictionary *fileDescription in _multipartArray){
-                NSURL *path = [fileDescription objectForKey:@"path"] ;
-                NSString *name = [fileDescription objectForKey:@"name"];
-                if(path && name)
-                    [formData appendPartWithFileURL:path name:name error:nil];
-                else{
-                    NSData *data = [fileDescription objectForKey:@"data"];
-                    if(data){
-                        [formData appendPartWithFormData:data name:name ];
-                    }
-                    else {
-                        UIImage *image = [fileDescription objectForKey:@"image"];
-                        if(image){
-                            [formData appendPartWithFormData:UIImagePNGRepresentation(image) name:name ];
-                            
-                        }
-                    }
-                }
-            }
-            
-        }
-        
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [self requestSucceededWithObject:responseObject];
-        if(_delegate){
-            [_delegate webServiceManager:self didFinishWithSuccess:_success];
-            _delegate = nil;
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [self requestFailedWithError:error forOperation:operation];
-        if(_delegate){
-            [_delegate webServiceManager:self didFinishWithSuccess:_success];
-            _delegate = nil;
-        }
-    }];
+    [_requestOperationManager POST:_urlString
+                        parameters:_parameters
+         constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+             if(_multipartArray){
+                 for(NSDictionary *fileDescription in _multipartArray){
+                     NSURL *path = fileDescription[@"path"] ;
+                     NSString *name = fileDescription[@"name"];
+                     if(path && name)
+                         [formData appendPartWithFileURL:path name:name error:nil];
+                     else{
+                         NSData *data = fileDescription[@"data"];
+                         if(data){
+                             [formData appendPartWithFormData:data name:name ];
+                         }
+                         else {
+                             UIImage *image = fileDescription[@"image"];
+                             if(image){
+                                 [formData appendPartWithFormData:UIImagePNGRepresentation(image) name:name ];
+                                 
+                             }
+                         }
+                     }
+                 }
+             }
+         }
+                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                               [self handleHTTPResponseForOperation:operation responseObject:responseObject error:nil];
+                           }
+                           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                               [self handleHTTPResponseForOperation:operation responseObject:nil error:error];
+                               
+                           }];
 }
 
 -(void)performPUTRequest{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
     
-    [manager
-     PUT:_urlString
-     parameters:_parameters
-     success:^(AFHTTPRequestOperation *operation, id responseObject) {
-          [self requestSucceededWithObject:responseObject];
-          if(_delegate){
-              [_delegate webServiceManager:self didFinishWithSuccess:_success];
-              _delegate = nil;
-          }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [self requestFailedWithError:error forOperation:operation];
-        if(_delegate){
-            [_delegate webServiceManager:self didFinishWithSuccess:_success];
-            _delegate = nil;
-        }
-    }];
+    [_requestOperationManager PUT:_urlString
+                       parameters:_parameters
+                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                              [self handleHTTPResponseForOperation:operation responseObject:responseObject error:nil];
+                          }
+                          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                              [self handleHTTPResponseForOperation:operation responseObject:nil error:error];
+                              
+                          }];
 }
 
 
 -(void)performDELETERequest{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-    
-    [manager
-     DELETE:_urlString
-     parameters:_parameters
-     success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         [self requestSucceededWithObject:responseObject];
-         if(_delegate){
-             [_delegate webServiceManager:self didFinishWithSuccess:_success];
-             _delegate = nil;
-         }
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         [self requestFailedWithError:error forOperation:operation];
-         if(_delegate){
-             [_delegate webServiceManager:self didFinishWithSuccess:_success];
-             _delegate = nil;
-         }
-     }];
+    [_requestOperationManager DELETE:_urlString
+                          parameters:_parameters
+                             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                 [self handleHTTPResponseForOperation:operation responseObject:responseObject error:nil];
+                             }
+                             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                 [self handleHTTPResponseForOperation:operation responseObject:nil error:error];
+                                 
+                             }];
 }
 
 -(void)requestSucceededWithObject:(id)responseObject{
@@ -183,6 +157,7 @@
 -(void)requestFailedWithError:(NSError *)error forOperation:(AFHTTPRequestOperation *)operation{
     _isUpdating = NO;
     NSLog(@"%@",error);
+    
     _message = [NSString stringWithFormat:@"%@",[error userInfo]];
 }
 

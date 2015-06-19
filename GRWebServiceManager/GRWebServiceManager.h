@@ -2,7 +2,7 @@
 //  GRWebServiceManager.h
 //  SampleGRWebServiceManager
 //
-//  Created by Olivier Lestang [DAN-PARIS] on 04/06/2015.
+//  Created by Gnatsel Reivilo on 04/06/2015.
 //  Copyright (c) 2015 Gnatsel Reivilo. All rights reserved.
 //
 
@@ -11,6 +11,8 @@
 @class GRWebServiceManager;
 @protocol GRWebServiceManagerDelegate<NSObject>
 -(void)webServiceManager:(GRWebServiceManager *)webServiceManager didFinishWithSuccess:(BOOL)success;
+@optional
+-(void)webServiceManager:(GRWebServiceManager *)webServiceManager didReceiveResponseForOperation:(AFHTTPRequestOperation *)operation;
 @end
 
 typedef NS_ENUM(NSInteger, RequestMethod) {
@@ -25,6 +27,7 @@ typedef NS_ENUM(NSInteger, RequestMethod) {
 @property (strong, nonatomic) NSArray *multipartArray;
 @property (strong, nonatomic) NSString *urlString;
 @property (strong, nonatomic) NSString *message;
+@property (strong, nonatomic) AFHTTPRequestOperationManager *requestOperationManager;
 @property (weak, nonatomic) id<GRWebServiceManagerDelegate> delegate;
 @property (strong, nonatomic) id responseObject;
 @property (assign, nonatomic) NSInteger errorCode;

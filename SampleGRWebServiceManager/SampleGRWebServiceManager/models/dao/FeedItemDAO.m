@@ -2,7 +2,7 @@
 //  FeedItemDAO.m
 //  SampleGRWebServiceManager
 //
-//  Created by Olivier Lestang [DAN-PARIS] on 04/06/2015.
+//  Created by Gnatsel Reivilo on 04/06/2015.
 //  Copyright (c) 2015 Gnatsel Reivilo. All rights reserved.
 //
 
@@ -13,7 +13,7 @@
 +(FeedItem *)feedItemUpdatedWithDictionary:(NSDictionary *)dictionary{
     return (FeedItem *)[FeedItemDAO feedItemUpdatedWithKeyPaths:@[@"title",@"link",@"media",@"dateTaken",@"detailedDescription",@"published",@"author",@"authorId",@"tags"]
                                                  withDictionary:dictionary
-                                            andKeysInDictionary:@[@"title",@"link",@"media.@m",@"date_taken",@"description",@"published",@"author",@"author_id",@"tags"]];
+                                            andKeysInDictionary:@[@"title",@"link",@"media.m",@"date_taken",@"description",@"published",@"author",@"author_id",@"tags"]];
 }
 
 
@@ -31,6 +31,19 @@
 }
 +(void)deleteFeedItemsNotInArray:(NSArray *)feedItemsArray predicateFormat:(NSString *)predicateFormat{
     [FeedItemDAO deleteManagedObjectsNotInArray:feedItemsArray forEntityClass:[FeedItem class] predicateFormat:predicateFormat];
+}
+
++(NSFetchedResultsController *)fetchedResultsControllerWithDelegate:(id<NSFetchedResultsControllerDelegate>)delegate{
+    return [FeedItemDAO fetchedResultsControllerWithDelegate:delegate isBookmarkController:NO];
+}
+
++(NSFetchedResultsController *)fetchedResultsControllerWithDelegate:(id<NSFetchedResultsControllerDelegate>)delegate isBookmarkController:(BOOL)isBookmarkController{
+    return [FeedItemDAO fetchedResultsControllerForEntityClass:[FeedItem class]
+                                                      delegate:delegate
+                                               predicateFormat:isBookmarkController? [NSString stringWithFormat:@"isBookmarked = %@",@(isBookmarkController)]: nil
+                                               sortDescriptors:@[
+                                                                 [NSSortDescriptor sortDescriptorWithKey:@"published" ascending:NO]
+                                                                 ]];
 }
 
 @end
