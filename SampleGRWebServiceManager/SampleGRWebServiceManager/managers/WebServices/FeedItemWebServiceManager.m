@@ -56,7 +56,7 @@
         NSData *fixedJSONData = [fixedJSONString dataUsingEncoding:NSUTF8StringEncoding];
         NSError *jsonError;
         id fixedResponseObject = [NSJSONSerialization JSONObjectWithData: fixedJSONData
-                                        options: NSJSONReadingMutableContainers
+                                        options: 0
                                           error: &jsonError];
         if(!jsonError){
             self.success = YES;

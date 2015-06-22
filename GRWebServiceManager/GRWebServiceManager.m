@@ -20,7 +20,6 @@
         [acceptableContentTypes addObject:@"application/javascript"];
         AFJSONResponseSerializer *responseSerializer = (AFJSONResponseSerializer *)(_requestOperationManager.responseSerializer);
         responseSerializer.acceptableContentTypes = acceptableContentTypes;
-        /*responseSerializer.readingOptions = NSJSONReadingAllowFragments;*/
         
     }
     return self;

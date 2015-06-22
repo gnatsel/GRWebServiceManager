@@ -24,7 +24,7 @@
                                                 predicateFormat:[NSString stringWithFormat:@"link = '%@'",dictionary[@"link"]]
                                           managedObjectKeyPaths:keyPaths
                                                  withDictionary:dictionary
-                                            andKeysInDictionary:keysInDictionary];
+                                            dictionaryKeyPaths:keysInDictionary];
 }
 +(void)deleteFeedItemsNotInArray:(NSArray *)feedItemsArray{
     [FeedItemDAO deleteFeedItemsNotInArray:feedItemsArray predicateFormat:[NSString stringWithFormat:@"isBookmarked = %@",@NO]];
