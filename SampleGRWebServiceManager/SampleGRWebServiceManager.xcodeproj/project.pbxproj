@@ -15,6 +15,7 @@
 		343C52D11B1CC69F00F9EE3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 343C52BD1B1CC69F00F9EE3B /* AppDelegate.m */; };
 		343C52D31B1CC69F00F9EE3B /* SampleGRWebServiceManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 343C52C41B1CC69F00F9EE3B /* SampleGRWebServiceManager.xcdatamodeld */; };
 		343C52D71B1CC69F00F9EE3B /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 343C52CF1B1CC69F00F9EE3B /* Constants.m */; };
+		34768C8C1B7A4B8400E073DB /* UIColor+ColorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 34768C8B1B7A4B8400E073DB /* UIColor+ColorUtils.m */; };
 		3497EDA21B1DAB9200935896 /* FeedItemPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3497EDA11B1DAB9200935896 /* FeedItemPresenter.m */; };
 		3497EDA91B1DADAE00935896 /* GRCoreDataUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3497EDA81B1DADAE00935896 /* GRCoreDataUtils.m */; };
 		3497EDC51B1DAEB100935896 /* GRRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3497EDC01B1DAEB100935896 /* GRRefreshView.m */; };
@@ -24,7 +25,6 @@
 		34E278CA1B20466E00F3EB44 /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E278C91B20466E00F3EB44 /* FeedTableViewController.m */; };
 		34E278CD1B2047B800F3EB44 /* FeedItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E278CC1B2047B800F3EB44 /* FeedItemTableViewCell.m */; };
 		34E278D01B204A7800F3EB44 /* FeedItemDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E278CF1B204A7800F3EB44 /* FeedItemDAO.m */; };
-		34E278D31B204BE400F3EB44 /* UIColor+ColorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E278D21B204BE400F3EB44 /* UIColor+ColorUtils.m */; };
 		34E278DA1B204DD500F3EB44 /* GRWebServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E278D91B204DD500F3EB44 /* GRWebServiceManager.m */; };
 		34E278E11B205C2000F3EB44 /* FeedItemWebServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E278E01B205C2000F3EB44 /* FeedItemWebServiceManager.m */; };
 		34E278E71B2067AC00F3EB44 /* GRCoreDataUtils+AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E278E61B2067AC00F3EB44 /* GRCoreDataUtils+AppDelegate.m */; };
@@ -60,6 +60,8 @@
 		343C52C51B1CC69F00F9EE3B /* SampleGRWebServiceManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleGRWebServiceManager.xcdatamodel; sourceTree = "<group>"; };
 		343C52CE1B1CC69F00F9EE3B /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		343C52CF1B1CC69F00F9EE3B /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		34768C8A1B7A4B8400E073DB /* UIColor+ColorUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+ColorUtils.h"; path = "SampleGRWebServiceManager/utils/UIColor+ColorUtils.h"; sourceTree = SOURCE_ROOT; };
+		34768C8B1B7A4B8400E073DB /* UIColor+ColorUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+ColorUtils.m"; path = "SampleGRWebServiceManager/utils/UIColor+ColorUtils.m"; sourceTree = SOURCE_ROOT; };
 		3497EDA01B1DAB9200935896 /* FeedItemPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedItemPresenter.h; sourceTree = "<group>"; };
 		3497EDA11B1DAB9200935896 /* FeedItemPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItemPresenter.m; sourceTree = "<group>"; };
 		3497EDA71B1DADAE00935896 /* GRCoreDataUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRCoreDataUtils.h; sourceTree = "<group>"; };
@@ -78,8 +80,6 @@
 		34E278CC1B2047B800F3EB44 /* FeedItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItemTableViewCell.m; sourceTree = "<group>"; };
 		34E278CE1B204A7800F3EB44 /* FeedItemDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedItemDAO.h; sourceTree = "<group>"; };
 		34E278CF1B204A7800F3EB44 /* FeedItemDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItemDAO.m; sourceTree = "<group>"; };
-		34E278D11B204BE400F3EB44 /* UIColor+ColorUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+ColorUtils.h"; path = "../../../GRPullToRefresh/SampleGRPullToRefresh/SampleGRPullToRefresh/utils/UIColor+ColorUtils.h"; sourceTree = "<group>"; };
-		34E278D21B204BE400F3EB44 /* UIColor+ColorUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+ColorUtils.m"; path = "../../../GRPullToRefresh/SampleGRPullToRefresh/SampleGRPullToRefresh/utils/UIColor+ColorUtils.m"; sourceTree = "<group>"; };
 		34E278D81B204DD500F3EB44 /* GRWebServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRWebServiceManager.h; sourceTree = "<group>"; };
 		34E278D91B204DD500F3EB44 /* GRWebServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRWebServiceManager.m; sourceTree = "<group>"; };
 		34E278DF1B205C2000F3EB44 /* FeedItemWebServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedItemWebServiceManager.h; sourceTree = "<group>"; };
@@ -219,6 +219,8 @@
 			children = (
 				34E278CE1B204A7800F3EB44 /* FeedItemDAO.h */,
 				34E278CF1B204A7800F3EB44 /* FeedItemDAO.m */,
+				34768C8A1B7A4B8400E073DB /* UIColor+ColorUtils.h */,
+				34768C8B1B7A4B8400E073DB /* UIColor+ColorUtils.m */,
 			);
 			path = dao;
 			sourceTree = "<group>";
@@ -249,8 +251,6 @@
 			children = (
 				343C52CE1B1CC69F00F9EE3B /* Constants.h */,
 				343C52CF1B1CC69F00F9EE3B /* Constants.m */,
-				34E278D11B204BE400F3EB44 /* UIColor+ColorUtils.h */,
-				34E278D21B204BE400F3EB44 /* UIColor+ColorUtils.m */,
 				3497EDA61B1DADAE00935896 /* GRCoreDataUtils */,
 			);
 			path = utils;
@@ -493,9 +493,9 @@
 				34E278DA1B204DD500F3EB44 /* GRWebServiceManager.m in Sources */,
 				34E278EC1B20696A00F3EB44 /* DetailFeedViewController.m in Sources */,
 				3497EDC71B1DAEB100935896 /* UIScrollView+GRPullToRefresh.m in Sources */,
-				34E278D31B204BE400F3EB44 /* UIColor+ColorUtils.m in Sources */,
 				34E278E11B205C2000F3EB44 /* FeedItemWebServiceManager.m in Sources */,
 				3497EDA91B1DADAE00935896 /* GRCoreDataUtils.m in Sources */,
+				34768C8C1B7A4B8400E073DB /* UIColor+ColorUtils.m in Sources */,
 				34E278C11B1F3DAA00F3EB44 /* GRCustomRefreshView.m in Sources */,
 				343C52D11B1CC69F00F9EE3B /* AppDelegate.m in Sources */,
 				343C52D71B1CC69F00F9EE3B /* Constants.m in Sources */,

@@ -38,12 +38,14 @@
 }
 
 +(NSFetchedResultsController *)fetchedResultsControllerWithDelegate:(id<NSFetchedResultsControllerDelegate>)delegate isBookmarkController:(BOOL)isBookmarkController{
+    
     return [FeedItemDAO fetchedResultsControllerForEntityClass:[FeedItem class]
                                                       delegate:delegate
                                                predicateFormat:isBookmarkController? [NSString stringWithFormat:@"isBookmarked = %@",@(isBookmarkController)]: nil
                                                sortDescriptors:@[
                                                                  [NSSortDescriptor sortDescriptorWithKey:@"published" ascending:NO]
-                                                                 ]];
+                                                                 ]
+                                            sectionNameKeyPath:nil];
 }
 
 @end
