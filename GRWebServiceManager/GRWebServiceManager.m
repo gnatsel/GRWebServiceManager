@@ -162,6 +162,9 @@
 
 
 
+/**
+ * This method creates a singleton for each subclass of GRWebServiceManager
+ */
 + (instancetype)sharedInstance {
     static id sharedInstanceDictionary = nil;
     id sharedInstance = nil;
@@ -185,7 +188,8 @@
     }
     return webServicesManager;
 }
-+(instancetype)sharedInstanceWithDelegate:(id<GRWebServiceManagerDelegate>)delegate requestMethod:(RequestMethod)requestMethod{
++(instancetype)sharedInstanceWithDelegate:(id<GRWebServiceManagerDelegate>)delegate
+                            requestMethod:(RequestMethod)requestMethod{
     GRWebServiceManager *webServicesManager = [[self class] sharedInstance];
     if(webServicesManager){
         webServicesManager.delegate = delegate;
@@ -194,7 +198,8 @@
     return webServicesManager;
 }
 
-+(instancetype)sharedInstanceWithParameters:(NSDictionary *)parameters delegate:(id<GRWebServiceManagerDelegate>)delegate{
++(instancetype)sharedInstanceWithParameters:(NSDictionary *)parameters
+                                   delegate:(id<GRWebServiceManagerDelegate>)delegate{
     GRWebServiceManager *webServicesManager = [[self class] sharedInstance];
     if(webServicesManager){
         webServicesManager.parameters = parameters;
@@ -202,7 +207,9 @@
     }
     return webServicesManager;
 }
-+(instancetype)sharedInstanceWithParameters:(NSDictionary *)parameters delegate:(id<GRWebServiceManagerDelegate>)delegate requestMethod:(RequestMethod)requestMethod{
++(instancetype)sharedInstanceWithParameters:(NSDictionary *)parameters
+                                   delegate:(id<GRWebServiceManagerDelegate>)delegate
+                              requestMethod:(RequestMethod)requestMethod{
     GRWebServiceManager *webServicesManager = [[self class] sharedInstance];
     if(webServicesManager){
         webServicesManager.parameters = parameters;
@@ -211,7 +218,9 @@
     }
     return webServicesManager;
 }
-+(instancetype)sharedInstanceWithParameters:(NSDictionary *)parameters multipartParameters:(NSArray *)multipartArray delegate:(id<GRWebServiceManagerDelegate>)delegate{
++(instancetype)sharedInstanceWithParameters:(NSDictionary *)parameters
+                        multipartParameters:(NSArray *)multipartArray
+                                   delegate:(id<GRWebServiceManagerDelegate>)delegate{
     GRWebServiceManager *webServicesManager = [[self class] sharedInstance];
     if(webServicesManager){
         webServicesManager.parameters = parameters;
@@ -221,7 +230,10 @@
     return webServicesManager;
 }
 
-+(instancetype)sharedInstanceWithParameters:(NSDictionary *)parameters multipartParameters:(NSArray *)multipartArray delegate:(id<GRWebServiceManagerDelegate>)delegate requestMethod:(RequestMethod)requestMethod{
++(instancetype)sharedInstanceWithParameters:(NSDictionary *)parameters
+                        multipartParameters:(NSArray *)multipartArray
+                                   delegate:(id<GRWebServiceManagerDelegate>)delegate
+                              requestMethod:(RequestMethod)requestMethod{
     GRWebServiceManager *webServicesManager = [[self class] sharedInstance];
     if(webServicesManager){
         webServicesManager.parameters = parameters;
@@ -232,7 +244,9 @@
     return webServicesManager;
 }
 
-+(instancetype)sharedInstanceWitURLString:(NSString *)urlString parameters:(NSDictionary *)parameters delegate:(id<GRWebServiceManagerDelegate>)delegate{
++(instancetype)sharedInstanceWitURLString:(NSString *)urlString
+                               parameters:(NSDictionary *)parameters
+                                 delegate:(id<GRWebServiceManagerDelegate>)delegate{
     GRWebServiceManager *webServicesManager = [[self class] sharedInstance];
     if(webServicesManager){
         webServicesManager.urlString = urlString;
@@ -241,7 +255,10 @@
     }
     return webServicesManager;
 }
-+(instancetype)sharedInstanceWitURLString:(NSString *)urlString parameters:(NSDictionary *)parameters delegate:(id<GRWebServiceManagerDelegate>)delegate requestMethod:(RequestMethod)requestMethod{
++(instancetype)sharedInstanceWitURLString:(NSString *)urlString
+                               parameters:(NSDictionary *)parameters
+                                 delegate:(id<GRWebServiceManagerDelegate>)delegate
+                            requestMethod:(RequestMethod)requestMethod{
     GRWebServiceManager *webServicesManager = [[self class] sharedInstance];
     if(webServicesManager){
         webServicesManager.urlString = urlString;
@@ -251,7 +268,10 @@
     }
     return webServicesManager;
 }
-+(instancetype)sharedInstanceWitURLString:(NSString *)urlString parameters:(NSDictionary *)parameters multipartParameters:(NSArray *)multipartArray delegate:(id<GRWebServiceManagerDelegate>)delegate{
++(instancetype)sharedInstanceWitURLString:(NSString *)urlString
+                               parameters:(NSDictionary *)parameters
+                      multipartParameters:(NSArray *)multipartArray
+                                 delegate:(id<GRWebServiceManagerDelegate>)delegate{
     GRWebServiceManager *webServicesManager = [[self class] sharedInstance];
     if(webServicesManager){
         webServicesManager.urlString = urlString;
@@ -262,7 +282,11 @@
     return webServicesManager;
 }
 
-+(instancetype)sharedInstanceWitURLString:(NSString *)urlString parameters:(NSDictionary *)parameters multipartParameters:(NSArray *)multipartArray delegate:(id<GRWebServiceManagerDelegate>)delegate requestMethod:(RequestMethod)requestMethod{
++(instancetype)sharedInstanceWitURLString:(NSString *)urlString
+                               parameters:(NSDictionary *)parameters
+                      multipartParameters:(NSArray *)multipartArray
+                                 delegate:(id<GRWebServiceManagerDelegate>)delegate
+                            requestMethod:(RequestMethod)requestMethod{
     GRWebServiceManager *webServicesManager = [[self class] sharedInstance];
     if(webServicesManager){
         webServicesManager.urlString = urlString;

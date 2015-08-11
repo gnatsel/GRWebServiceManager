@@ -28,6 +28,7 @@
     [super viewDidLoad];
     _feedItemFetchedResultsController = [FeedItemDAO fetchedResultsControllerWithDelegate:self isBookmarkController:_isBookmarkController];
     [[FeedItemWebServiceManager sharedInstanceWithDelegate:self]perform];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
