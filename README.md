@@ -1,6 +1,19 @@
 GRWebServiceManager
 ===============
-Web service manager for JSON web service
+Web service manager for JSON web service based on AFNetworking
+
+Installation
+----------
+### Installation with CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like AFNetworking in your projects. See the ["Getting Started" guide of AFNetworking for more information](https://github.com/AFNetworking/AFNetworking/wiki/Getting-Started-with-AFNetworking).
+
+#### Podfile
+
+```ruby
+platform :ios, '7.0'
+pod "AFNetworking", "~> 2.0"
+```
 
 How to use
 ----------
